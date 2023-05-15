@@ -1,0 +1,33 @@
+@startuml Conceptual Academico
+' Alt + D: Generar Diagrama
+class SistemaAcademico
+
+class Estudiante
+class Curso
+class Documento
+class Respuesta
+class Calificación
+class Cuota
+class Profesor
+class Rector
+class Evento
+class Fecha
+class CoordinadorAcademico
+
+Estudiante "1" -- "*" Curso
+Estudiante "1" -- "*" Documento
+Estudiante "1" -- "*" Calificación
+Estudiante "1" -- "*" Cuota
+
+Curso "1" -- "*" Estudiante
+Curso "1" -- "*" Profesor
+
+Profesor "1" -- "*" Curso
+Profesor "1" -- "*" Calificación
+
+Rector "1" -- "*" Evento
+Rector "1" -- "*" Fecha
+
+CoordinadorAcademico "1" -- "*" Curso
+
+@enduml

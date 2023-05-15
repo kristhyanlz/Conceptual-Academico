@@ -1,0 +1,73 @@
+@startuml
+class Universidad
+class Usuario
+class Estudiante
+class Facultad
+class Personal
+class Curso
+class Departamento
+class Portal
+class Inscripcion
+class Calificacion
+class Anuncio
+class Asignacion
+class Examen
+class Clase
+class Tutorial
+class Biblioteca
+class Libro
+class Recurso
+class Evento
+class Expediente
+class Carrera
+class Campus
+class Edificio
+class Aula
+class Asistencia
+class Retroalimentacion
+class Horario
+class Beca
+class AyudaFinanciera
+class Pago
+class TrabajoInvestigacion
+class Publicacion
+class PracticaCoop
+class Internado
+
+Universidad "1" --> "1..n" Departamento
+Departamento "1" --> "n" Facultad
+Departamento "1" --> "n" Curso
+Curso "1" --> "1..n" Facultad
+Curso "1" --> "0..n" Estudiante
+Estudiante "0..n" --> "0..n" Inscripcion
+Estudiante "0..n" --> "0..n" Calificacion
+Facultad "0..n" --> "0..n" Calificacion
+Facultad "0..n" --> "0..n" Asignacion
+Facultad "0..n" --> "0..n" Examen
+Facultad "0..n" --> "0..n" Clase
+Facultad "0..n" --> "0..n" Tutorial
+Facultad "0..n" --> "0..n" TrabajoInvestigacion
+Facultad "0..n" --> "0..n" Publicacion
+Facultad "0..n" --> "0..n" PracticaCoop
+Facultad "0..n" --> "0..n" Internado
+Estudiante "1" --> "1..n" Expediente
+Estudiante "1" --> "0..n" Carrera
+Estudiante "0..n" --> "0..n" Beca
+Estudiante "0..n" --> "0..n" AyudaFinanciera
+Estudiante "0..n" --> "0..n" Pago
+Estudiante "0..n" --> "0..n" Asistencia
+Estudiante "0..n" --> "0..n" Retroalimentacion
+Estudiante "0..n" --> "0..n" Horario
+Curso "0..n" --> "0..n" Asignacion
+Curso "0..n" --> "0..n" Examen
+Curso "0..n" --> "0..n" Clase
+Curso "0..n" --> "0..n" Tutorial
+Curso "0..n" --> "0..n" Recurso
+Portal --> Anuncio
+Portal --> Evento
+Biblioteca --> Libro
+Biblioteca --> Recurso
+Campus "1" --> "n" Edificio
+Edificio "1" --> "n" Aula
+
+@enduml
