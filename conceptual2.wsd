@@ -1,4 +1,4 @@
-@startuml
+@startuml Academico
 class Universidad
 class Usuario
 class Estudiante
@@ -51,7 +51,7 @@ Facultad "0..n" --> "0..n" Publicacion
 Facultad "0..n" --> "0..n" PracticaCoop
 Facultad "0..n" --> "0..n" Internado
 Estudiante "1" --> "1..n" Expediente
-Estudiante "1" --> "0..n" Carrera
+Estudiante "1" --> "0..n" Carrera 
 Estudiante "0..n" --> "0..n" Beca
 Estudiante "0..n" --> "0..n" AyudaFinanciera
 Estudiante "0..n" --> "0..n" Pago

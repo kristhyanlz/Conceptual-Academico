@@ -1,33 +1,66 @@
 @startuml Conceptual Academico
 ' Alt + D: Generar Diagrama
-class SistemaAcademico
-
-class Estudiante
-class Curso
-class Documento
-class Respuesta
-class Calificación
-class Cuota
+class Usuario
 class Profesor
+class Estudiante
+
+class Curso
+class "Cátedra" as Catedra
+class "Matrícula" as Matricula
+class Horario
+class Aula
+
+class Asistencia
+
+class "Trámite" as Tramite
+class Respuesta
+class "Calificación" as Calificacion
+class Cuota
+class Fecha
+
 class Rector
 class Evento
-class Fecha
-class CoordinadorAcademico
 
-Estudiante "1" -- "*" Curso
-Estudiante "1" -- "*" Documento
-Estudiante "1" -- "*" Calificación
-Estudiante "1" -- "*" Cuota
+class Biblioteca
+class Libro
+class Recurso
 
-Curso "1" -- "*" Estudiante
-Curso "1" -- "*" Profesor
+Usuario <|-- Profesor
+Usuario <|-- Estudiante
+'Un rector siempre es un profesor?
+Usuario <|-- Rector 
 
-Profesor "1" -- "*" Curso
-Profesor "1" -- "*" Calificación
+Estudiante "1" -- "0..n"  Tramite: Realiza >
+Tramite "1" -- "0..n"     Respuesta
+Estudiante "1" -- "n"     Calificación
+Estudiante "1" -- "1..n"  Cuota
+Estudiante "1" -- "0..n"  Matricula
+Estudiante "1" -- "n"     Asistencia
 
-Rector "1" -- "*" Evento
-Rector "1" -- "*" Fecha
+Catedra "n" -- "1" Curso
+Catedra "n" -- "1" Matricula
+Catedra "n" -- "1" Profesor: Dicta <
+Catedra "n" -- "1" Horario
+Catedra "n" -- "1" Aula
 
-CoordinadorAcademico "1" -- "*" Curso
+Horario "n" -- "n" Fecha
+
+Asistencia "n" -- "1" Horario
+Asistencia "n" -- "1" Fecha
+
+Profesor "1" -- "n" Calificacion
+
+Rector "1" -- "n" Evento
+
+Evento "n" -- "n" Fecha
+
+Biblioteca "1" -- "n" Libro
+Biblioteca "1" -- "n" Recurso
+
+Sede "1" -- "1..n" Edificio
+Sede "1" -- "1..n" Departamento
+Departamento "1" -- "1..n" Facultad
+
+Edificio "1" -- "1..n" Aula
 
 @enduml
