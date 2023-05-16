@@ -1,5 +1,11 @@
 @startuml Conceptual Academico
 ' Alt + D: Generar Diagrama
+
+note as Autor
+Autor: Kristhyan A. Kurt Lazarte Zubia
+end note
+
+
 class Usuario
 class Profesor
 class Estudiante
